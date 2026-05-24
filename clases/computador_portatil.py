@@ -1,4 +1,5 @@
 from clases.validaciones import pedir_texto, pedir_serial, pedir_flotante, pedir_opcion_menu
+from constantes import SISTEMAS_OPERATIVOS, PROCESADORES
 
 
 class ComputadorPortatil:
@@ -56,30 +57,18 @@ class ComputadorPortatil:
     #SUBMENÚ SISTEMA OPERATIVO
     def __seleccionar_so(self):
         print("\n  Sistema Operativo:")
-        print("    1. Windows")
-        print("    2. MacOS")
-        print("    3. Linux")
-        opcion = pedir_opcion_menu("  Opción: ", ["1", "2", "3"])
-        opciones = {"1": "Windows", "2": "MacOS", "3": "Linux"}
-        return opciones[opcion]
+        for i, so in enumerate(SISTEMAS_OPERATIVOS, 1):
+            print(f"    {i}. {so}")
+        opcion = pedir_opcion_menu("  Opción: ", [str(i) for i in range(1, len(SISTEMAS_OPERATIVOS)+1)])
+        return SISTEMAS_OPERATIVOS[int(opcion)-1]
 
     #SUBMENÚ PROCESADOR 
     def __seleccionar_procesador(self):
         print("\n  Procesador:")
-        print("    1. Intel Core i5")
-        print("    2. Intel Core i7")
-        print("    3. AMD Ryzen 5")
-        print("    4. AMD Ryzen 7")
-        print("    5. Apple M1")
-        opcion = pedir_opcion_menu("  Opción: ", ["1", "2", "3", "4", "5"])
-        opciones = {
-            "1": "Intel Core i5",
-            "2": "Intel Core i7",
-            "3": "AMD Ryzen 5",
-            "4": "AMD Ryzen 7",
-            "5": "Apple M1"
-        }
-        return opciones[opcion]
+        for i, p in enumerate(PROCESADORES, 1):
+            print(f"    {i}. {p}")
+        opcion = pedir_opcion_menu("  Opción: ", [str(i) for i in range(1, len(PROCESADORES)+1)])
+        return PROCESADORES[int(opcion)-1]
 
     #MÉTODOS DE CAPTURA DE DATOS
     def capturar_datos(self):

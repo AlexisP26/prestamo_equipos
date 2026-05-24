@@ -64,12 +64,12 @@ class EstudianteDiseño:
         self.__telefono = pedir_telefono("  Teléfono: ")
 
         print("\n  Modalidad:")
-        print("    1. Virtual")
-        print("    2. Presencial")
-        opcion = pedir_opcion_menu("  Opción: ", ["1", "2"])
-        self.__modalidad = "Virtual" if opcion == "1" else "Presencial"
+        for i, m in enumerate(MODALIDADES, 1):
+            print(f"    {i}. {m}")
+        opcion = pedir_opcion_menu("  Opción: ", [str(i) for i in range(1, len(MODALIDADES)+1)])
+        self.__modalidad = MODALIDADES[int(opcion)-1]
 
-        self.__cant_asignaturas = pedir_entero("  Cantidad de asignaturas (1-10): ", minimo=1, maximo=10)
+        self.__cant_asignaturas = pedir_entero("  Cantidad de asignaturas (1-10): ", minimo=ASIGNATURAS_MIN, maximo=ASIGNATURAS_MAX)
         self.__serial_equipo = pedir_texto("  Serial del equipo a prestar: ")
 
     def modificar_datos(self):

@@ -1,7 +1,5 @@
-# tableta_grafica.py
-# Clase TabletaGrafica - Proyecto Gestión Préstamo Equipos
-
 from clases.validaciones import pedir_texto, pedir_serial, pedir_flotante, pedir_opcion_menu
+from constantes import ALMACENAMIENTOS
 
 
 class TabletaGrafica:
@@ -58,13 +56,10 @@ class TabletaGrafica:
     # SUBMENÚ ALMACENAMIENTO 
     def __seleccionar_almacenamiento(self):
         print("\n  Almacenamiento:")
-        print("    1.  64 GB")
-        print("    2. 128 GB")
-        print("    3. 256 GB")
-        print("    4. 512 GB")
-        opcion = pedir_opcion_menu("  Opción: ", ["1", "2", "3", "4"])
-        opciones = {"1": "64 GB", "2": "128 GB", "3": "256 GB", "4": "512 GB"}
-        return opciones[opcion]
+        for i, a in enumerate(ALMACENAMIENTOS, 1):
+            print(f"    {i}. {a}")
+        opcion = pedir_opcion_menu("  Opción: ", [str(i) for i in range(1, len(ALMACENAMIENTOS)+1)])
+        return ALMACENAMIENTOS[int(opcion)-1]
 
     # MÉTODOS DE CAPTURA DE DATOS
     def capturar_datos(self):
