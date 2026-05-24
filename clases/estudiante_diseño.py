@@ -1,4 +1,5 @@
 from clases.validaciones import pedir_texto, pedir_cedula, pedir_telefono, pedir_entero, pedir_opcion_menu
+from constantes import ASIGNATURAS_MIN, MODALIDADES, ASIGNATURAS_MAX
 
 
 class EstudianteDiseño:
@@ -80,13 +81,11 @@ class EstudianteDiseño:
         self.__telefono = pedir_telefono("  Nuevo teléfono: ")
 
         print("\n  Nueva modalidad:")
-        print("    1. Virtual")
-        print("    2. Presencial")
-        opcion = pedir_opcion_menu("  Opción: ", ["1", "2"])
-        self.__modalidad = "Virtual" if opcion == "1" else "Presencial"
-
-        self.__cant_asignaturas = pedir_entero("  Nueva cantidad de asignaturas (1-10): ", minimo=1, maximo=10)
-
+        for i, m in enumerate(MODALIDADES, 1):
+            print(f"    {i}. {m}")
+        opcion = pedir_opcion_menu("  Opción: ", [str(i) for i in range(1, len(MODALIDADES)+1)])
+        self.__modalidad = MODALIDADES[int(opcion)-1]
+        self.__cant_asignaturas = pedir_entero("  Cantidad de asignaturas: ", minimo=ASIGNATURAS_MIN, maximo=ASIGNATURAS_MAX)
     # IMPRIMIR 
     def imprimir(self):
         print(f"""
