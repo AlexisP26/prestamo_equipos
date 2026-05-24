@@ -1,22 +1,17 @@
-# gestion.py
-# Vectores y operaciones - Proyecto Gestión Préstamo Equipos
-
 from clases.estudiante_ingenieria import EstudianteIngenieria
-from clases.estudiante_diseno import EstudianteDiseno
+from clases.estudiante_diseño import EstudianteDiseno
 from clases.computador_portatil import ComputadorPortatil
 from clases.tableta_grafica import TabletaGrafica
 from clases.validaciones import pedir_cedula, pedir_serial, pedir_opcion_menu
 
-# ─── 4 VECTORES PRINCIPALES ────────────────────────────────
+# 4 VECTORES PRINCIPALES 
 vector_ingenieros   = []
 vector_disenadores  = []
 vector_portatil     = []
 vector_tableta      = []
 
-
-# ══════════════════════════════════════════════════════════════
 #  UTILIDADES DE BÚSQUEDA
-# ══════════════════════════════════════════════════════════════
+
 
 def buscar_ingeniero_cedula(cedula):
     """Busca un ingeniero por cédula. Retorna el objeto o None."""
@@ -47,9 +42,8 @@ def buscar_tableta_serial(serial):
     return None
 
 
-# ══════════════════════════════════════════════════════════════
+
 #  GESTIÓN ESTUDIANTES INGENIERÍA
-# ══════════════════════════════════════════════════════════════
 
 def registrar_ingeniero():
     print("\n╔══ REGISTRAR PRÉSTAMO - INGENIERÍA ══╗")
@@ -139,9 +133,8 @@ def listar_ingenieros():
         est.imprimir()
 
 
-# ══════════════════════════════════════════════════════════════
 #  GESTIÓN ESTUDIANTES DISEÑO
-# ══════════════════════════════════════════════════════════════
+
 
 def registrar_disenador():
     print("\n╔══ REGISTRAR PRÉSTAMO - DISEÑO ══╗")
@@ -228,9 +221,8 @@ def listar_disenadores():
         est.imprimir()
 
 
-# ══════════════════════════════════════════════════════════════
 #  GESTIÓN EQUIPOS
-# ══════════════════════════════════════════════════════════════
+
 
 def registrar_portatil():
     print("\n╔══ REGISTRAR PORTÁTIL ══╗")

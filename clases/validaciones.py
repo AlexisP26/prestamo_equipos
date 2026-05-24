@@ -1,6 +1,3 @@
-# validaciones.py
-# Métodos recursivos de validación - Proyecto Gestión Préstamo Equipos
-
 def pedir_texto(mensaje):
     """Solo letras y espacios. Sin números ni caracteres especiales."""
     valor = input(mensaje).strip()

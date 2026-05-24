@@ -1,6 +1,3 @@
-# estudiante_ingenieria.py
-# Clase EstudianteIngenieria - Proyecto Gestión Préstamo Equipos
-
 from clases.validaciones import pedir_texto, pedir_cedula, pedir_telefono, pedir_entero, pedir_flotante, pedir_serial
 
 
@@ -15,7 +12,7 @@ class EstudianteIngenieria:
         self.__promedio = 0.0
         self.__serial_equipo = ""
 
-    # ─── GETTERS ───────────────────────────────────────────
+    
     def get_cedula(self):
         return self.__cedula
 
@@ -37,7 +34,6 @@ class EstudianteIngenieria:
     def get_serial_equipo(self):
         return self.__serial_equipo
 
-    # ─── SETTERS ───────────────────────────────────────────
     def set_nombre(self, nombre):
         self.__nombre = nombre
 
@@ -56,7 +52,7 @@ class EstudianteIngenieria:
     def set_serial_equipo(self, serial):
         self.__serial_equipo = serial
 
-    # ─── MÉTODOS DE CAPTURA DE DATOS ───────────────────────
+    #MÉTODOS DE CAPTURA DE DATOS
     def capturar_datos(self):
         """Captura y valida todos los datos del estudiante al registrar."""
         print("\n─── Registro Estudiante Ingeniería ───")
@@ -78,7 +74,7 @@ class EstudianteIngenieria:
         self.__semestre = pedir_entero("  Nuevo semestre (1-10): ", minimo=1, maximo=10)
         self.__promedio = pedir_flotante("  Nuevo promedio (0.0 - 5.0): ", minimo=0.0)
 
-    # ─── IMPRIMIR ───────────────────────────────────────────
+    #IMPRIMIR
     def imprimir(self):
         print(f"""
   ┌─ Estudiante Ingeniería ──────────────

@@ -1,6 +1,3 @@
-# computador_portatil.py
-# Clase ComputadorPortatil - Proyecto Gestión Préstamo Equipos
-
 from clases.validaciones import pedir_texto, pedir_serial, pedir_flotante, pedir_opcion_menu
 
 
@@ -9,21 +6,21 @@ class ComputadorPortatil:
     def __init__(self):
         self.__serial = ""
         self.__marca = ""
-        self.__tamanio = 0.0
+        self.__tamaño = 0.0
         self.__precio = 0.0
         self.__sistema_operativo = ""
         self.__procesador = ""
-        self.__estado = "Disponible"  # Disponible / Prestado
+        self.__estado = "Disponible"  
 
-    # ─── GETTERS ───────────────────────────────────────────
+    
     def get_serial(self):
         return self.__serial
 
     def get_marca(self):
         return self.__marca
 
-    def get_tamanio(self):
-        return self.__tamanio
+    def get_tamaño(self):
+        return self.__tamaño
 
     def get_precio(self):
         return self.__precio
@@ -37,12 +34,12 @@ class ComputadorPortatil:
     def get_estado(self):
         return self.__estado
 
-    # ─── SETTERS ───────────────────────────────────────────
+    
     def set_marca(self, marca):
         self.__marca = marca
 
-    def set_tamanio(self, tamanio):
-        self.__tamanio = tamanio
+    def set_tamaño(self, tamaño):
+        self.__tamaño = tamaño
 
     def set_precio(self, precio):
         self.__precio = precio
@@ -56,7 +53,7 @@ class ComputadorPortatil:
     def set_estado(self, estado):
         self.__estado = estado
 
-    # ─── SUBMENÚ SISTEMA OPERATIVO ──────────────────────────
+    #SUBMENÚ SISTEMA OPERATIVO
     def __seleccionar_so(self):
         print("\n  Sistema Operativo:")
         print("    1. Windows")
@@ -66,7 +63,7 @@ class ComputadorPortatil:
         opciones = {"1": "Windows", "2": "MacOS", "3": "Linux"}
         return opciones[opcion]
 
-    # ─── SUBMENÚ PROCESADOR ─────────────────────────────────
+    #SUBMENÚ PROCESADOR 
     def __seleccionar_procesador(self):
         print("\n  Procesador:")
         print("    1. Intel Core i5")
@@ -84,13 +81,13 @@ class ComputadorPortatil:
         }
         return opciones[opcion]
 
-    # ─── MÉTODOS DE CAPTURA DE DATOS ───────────────────────
+    #MÉTODOS DE CAPTURA DE DATOS
     def capturar_datos(self):
         """Captura y valida todos los datos del equipo al registrar."""
         print("\n─── Registro Computador Portátil ───")
         self.__serial = pedir_serial("  Serial: ")
         self.__marca = pedir_texto("  Marca: ")
-        self.__tamanio = pedir_flotante("  Tamaño en pulgadas (ej: 15.6): ", minimo=10.0)
+        self.__tamaño = pedir_flotante("  Tamaño en pulgadas (ej: 15.6): ", minimo=10.0)
         self.__precio = pedir_flotante("  Precio: ", minimo=0.0)
         self.__sistema_operativo = self.__seleccionar_so()
         self.__procesador = self.__seleccionar_procesador()
@@ -101,18 +98,18 @@ class ComputadorPortatil:
         print("\n─── Modificar Computador Portátil ───")
         print("  (Serial no se puede modificar)")
         self.__marca = pedir_texto("  Nueva marca: ")
-        self.__tamanio = pedir_flotante("  Nuevo tamaño en pulgadas: ", minimo=10.0)
+        self.__tamaño = pedir_flotante("  Nuevo tamaño en pulgadas: ", minimo=10.0)
         self.__precio = pedir_flotante("  Nuevo precio: ", minimo=0.0)
         self.__sistema_operativo = self.__seleccionar_so()
         self.__procesador = self.__seleccionar_procesador()
 
-    # ─── IMPRIMIR ───────────────────────────────────────────
+    #METODO DE IMPRESIÓN
     def imprimir(self):
         print(f"""
   ┌─ Computador Portátil ────────────────
   │  Serial:            {self.__serial}
   │  Marca:             {self.__marca}
-  │  Tamaño:            {self.__tamanio}"
+  │  Tamaño:            {self.__tamaño}"
   │  Precio:            ${self.__precio:,.2f}
   │  Sistema Operativo: {self.__sistema_operativo}
   │  Procesador:        {self.__procesador}
