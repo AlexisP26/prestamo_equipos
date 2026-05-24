@@ -30,7 +30,7 @@ def menu_ingenieria():
             break
 
 
-def menu_diseno():
+def menu_diseño():
     while True:
         print("""
 ╔══════════════════════════════════════╗
@@ -45,15 +45,15 @@ def menu_diseno():
 ╚══════════════════════════════════════╝""")
         opcion = pedir_opcion_menu("  Opción: ", ["1", "2", "3", "4", "5", "6"])
         if opcion == "1":
-            gestion.registrar_disenador()
+            gestion.registrar_diseñador()
         elif opcion == "2":
-            gestion.modificar_disenador()
+            gestion.modificar_diseñador()
         elif opcion == "3":
-            gestion.devolver_equipo_disenador()
+            gestion.devolver_equipo_diseñador()
         elif opcion == "4":
-            gestion.buscar_disenador()
+            gestion.buscar_diseñador()
         elif opcion == "5":
-            gestion.listar_disenadores()
+            gestion.listar_diseñadores()
         elif opcion == "6":
             break
 
@@ -96,7 +96,7 @@ def main():
         if opcion == "1":
             menu_ingenieria()
         elif opcion == "2":
-            menu_diseno()
+            menu_diseño()
         elif opcion == "3":
             menu_equipos()
         elif opcion == "4":

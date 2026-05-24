@@ -1,12 +1,12 @@
 from clases.estudiante_ingenieria import EstudianteIngenieria
-from clases.estudiante_diseño import EstudianteDiseno
+from clases.estudiante_diseño import EstudianteDiseño
 from clases.computador_portatil import ComputadorPortatil
 from clases.tableta_grafica import TabletaGrafica
 from clases.validaciones import pedir_cedula, pedir_serial, pedir_opcion_menu
 
 # 4 VECTORES PRINCIPALES 
 vector_ingenieros   = []
-vector_disenadores  = []
+vector_diseñadores  = []
 vector_portatil     = []
 vector_tableta      = []
 
@@ -20,9 +20,9 @@ def buscar_ingeniero_cedula(cedula):
             return est
     return None
 
-def buscar_disenador_cedula(cedula):
+def buscar_diseñador_cedula(cedula):
     """Busca un diseñador por cédula. Retorna el objeto o None."""
-    for est in vector_disenadores:
+    for est in vector_diseñadores:
         if est.get_cedula() == cedula:
             return est
     return None
@@ -136,12 +136,12 @@ def listar_ingenieros():
 #  GESTIÓN ESTUDIANTES DISEÑO
 
 
-def registrar_disenador():
+def registrar_diseñador():
     print("\n╔══ REGISTRAR PRÉSTAMO - DISEÑO ══╗")
-    estudiante = EstudianteDiseno()
+    estudiante = EstudianteDiseño()
     estudiante.capturar_datos()
 
-    if buscar_disenador_cedula(estudiante.get_cedula()):
+    if buscar_diseñador_cedula(estudiante.get_cedula()):
         print("❌ Ya existe un estudiante con esa cédula.")
         return
 
@@ -156,23 +156,23 @@ def registrar_disenador():
         return
 
     equipo.set_estado("Prestado")
-    vector_disenadores.append(estudiante)
+    vector_diseñadores.append(estudiante)
     print("✅ Préstamo registrado exitosamente.")
 
-def modificar_disenador():
+def modificar_diseñador():
     print("\n╔══ MODIFICAR - DISEÑO ══╗")
     cedula = pedir_cedula("  Cédula del estudiante: ")
-    estudiante = buscar_disenador_cedula(cedula)
+    estudiante = buscar_diseñador_cedula(cedula)
     if not estudiante:
         print("❌ No se encontró un estudiante con esa cédula.")
         return
     estudiante.modificar_datos()
     print("✅ Datos actualizados exitosamente.")
 
-def devolver_equipo_disenador():
+def devolver_equipo_diseñador():
     print("\n╔══ DEVOLUCIÓN EQUIPO - DISEÑO ══╗")
     cedula = pedir_cedula("  Cédula del estudiante: ")
-    estudiante = buscar_disenador_cedula(cedula)
+    estudiante = buscar_diseñador_cedula(cedula)
     if not estudiante:
         print("❌ No se encontró un estudiante con esa cédula.")
         return
@@ -184,10 +184,10 @@ def devolver_equipo_disenador():
     if equipo:
         equipo.set_estado("Disponible")
 
-    vector_disenadores.remove(estudiante)
+    vector_diseñadores.remove(estudiante)
     print(f"✅ Equipo {serial} devuelto y registro eliminado.")
 
-def buscar_disenador():
+def buscar_diseñador():
     print("\n╔══ BUSCAR - DISEÑO ══╗")
     print("  1. Buscar por cédula")
     print("  2. Buscar por serial de equipo")
@@ -195,7 +195,7 @@ def buscar_disenador():
 
     if opcion == "1":
         cedula = pedir_cedula("  Cédula: ")
-        estudiante = buscar_disenador_cedula(cedula)
+        estudiante = buscar_diseñador_cedula(cedula)
         if estudiante:
             estudiante.imprimir()
         else:
@@ -203,7 +203,7 @@ def buscar_disenador():
     else:
         serial = pedir_serial("  Serial del equipo: ")
         resultado = None
-        for est in vector_disenadores:
+        for est in vector_diseñadores:
             if est.get_serial_equipo() == serial:
                 resultado = est
                 break
@@ -212,12 +212,12 @@ def buscar_disenador():
         else:
             print("❌ No se encontró un estudiante con ese serial.")
 
-def listar_disenadores():
+def listar_diseñadores():
     print("\n╔══ LISTADO DISEÑO ══╗")
-    if not vector_disenadores:
+    if not vector_diseñadores:
         print("  No hay registros.")
         return
-    for est in vector_disenadores:
+    for est in vector_diseñadores:
         est.imprimir()
 
 

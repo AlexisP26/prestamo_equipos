@@ -1,5 +1,5 @@
 from clases.validaciones import pedir_texto, pedir_cedula, pedir_telefono, pedir_entero, pedir_flotante, pedir_serial
-
+from constantes import SEMESTRE_MIN, SEMESTRE_MAX, PROMEDIO_MIN, PROMEDIO_MAX
 
 class EstudianteIngenieria:
 
@@ -60,8 +60,8 @@ class EstudianteIngenieria:
         self.__nombre = pedir_texto("  Nombre: ")
         self.__apellido = pedir_texto("  Apellido: ")
         self.__telefono = pedir_telefono("  Teléfono: ")
-        self.__semestre = pedir_entero("  Semestre (1-10): ", minimo=1, maximo=10)
-        self.__promedio = pedir_flotante("  Promedio acumulado (0.0 - 5.0): ", minimo=0.0)
+        self.__semestre = pedir_entero("  Semestre: ", minimo=SEMESTRE_MIN, maximo=SEMESTRE_MAX)
+        self.__promedio = pedir_flotante("  Promedio acumulado: ", minimo=PROMEDIO_MIN)
         self.__serial_equipo = pedir_serial("  Serial del equipo a prestar: ")
 
     def modificar_datos(self):
@@ -71,8 +71,8 @@ class EstudianteIngenieria:
         self.__nombre = pedir_texto("  Nuevo nombre: ")
         self.__apellido = pedir_texto("  Nuevo apellido: ")
         self.__telefono = pedir_telefono("  Nuevo teléfono: ")
-        self.__semestre = pedir_entero("  Nuevo semestre (1-10): ", minimo=1, maximo=10)
-        self.__promedio = pedir_flotante("  Nuevo promedio (0.0 - 5.0): ", minimo=0.0)
+        self.__semestre = pedir_entero("  Nuevo semestre: ", minimo=SEMESTRE_MIN, maximo=SEMESTRE_MAX)
+        self.__promedio = pedir_flotante("  Nuevo promedio: ", minimo=PROMEDIO_MIN)
 
     #IMPRIMIR
     def imprimir(self):
