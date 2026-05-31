@@ -1,4 +1,4 @@
-from clases.validaciones import pedir_texto, pedir_serial, pedir_flotante, pedir_opcion_menu
+from clases.validaciones import pedir_texto, pedir_serial, pedir_flotante, pedir_precio, pedir_opcion_menu
 from constantes import ALMACENAMIENTOS
 
 
@@ -68,7 +68,7 @@ class TabletaGrafica:
         self.__serial = pedir_serial("  Serial: ")
         self.__marca = pedir_texto("  Marca: ")
         self.__tamaño = pedir_flotante("  Tamaño en pulgadas (ej: 10.5): ", minimo=7.0)
-        self.__precio = pedir_flotante("  Precio: ", minimo=0.0)
+        self.__precio = pedir_precio("  Precio: ")
         self.__almacenamiento = self.__seleccionar_almacenamiento()
         self.__peso = pedir_flotante("  Peso en kg (ej: 0.5): ", minimo=0.1)
         self.__estado = "Disponible"
@@ -79,7 +79,7 @@ class TabletaGrafica:
         print("  (Serial no se puede modificar)")
         self.__marca = pedir_texto("  Nueva marca: ")
         self.__tamaño = pedir_flotante("  Nuevo tamaño en pulgadas: ", minimo=7.0)
-        self.__precio = pedir_flotante("  Nuevo precio: ", minimo=0.0)
+        self.__precio = pedir_precio("  Nuevo precio: ")
         self.__almacenamiento = self.__seleccionar_almacenamiento()
         self.__peso = pedir_flotante("  Nuevo peso en kg: ", minimo=0.1)
 

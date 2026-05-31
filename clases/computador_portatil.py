@@ -1,4 +1,4 @@
-from clases.validaciones import pedir_texto, pedir_serial, pedir_flotante, pedir_opcion_menu
+from clases.validaciones import pedir_texto, pedir_serial, pedir_flotante, pedir_precio, pedir_opcion_menu
 from constantes import SISTEMAS_OPERATIVOS, PROCESADORES
 
 
@@ -77,7 +77,7 @@ class ComputadorPortatil:
         self.__serial = pedir_serial("  Serial: ")
         self.__marca = pedir_texto("  Marca: ")
         self.__tamaño = pedir_flotante("  Tamaño en pulgadas (ej: 15.6): ", minimo=10.0)
-        self.__precio = pedir_flotante("  Precio: ", minimo=0.0)
+        self.__precio = pedir_precio("  Precio: ")
         self.__sistema_operativo = self.__seleccionar_so()
         self.__procesador = self.__seleccionar_procesador()
         self.__estado = "Disponible"
@@ -88,7 +88,7 @@ class ComputadorPortatil:
         print("  (Serial no se puede modificar)")
         self.__marca = pedir_texto("  Nueva marca: ")
         self.__tamaño = pedir_flotante("  Nuevo tamaño en pulgadas: ", minimo=10.0)
-        self.__precio = pedir_flotante("  Nuevo precio: ", minimo=0.0)
+        self.__precio = pedir_precio("  Nuevo precio: ")
         self.__sistema_operativo = self.__seleccionar_so()
         self.__procesador = self.__seleccionar_procesador()
 
