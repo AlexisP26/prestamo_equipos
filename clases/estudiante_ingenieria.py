@@ -52,9 +52,7 @@ class EstudianteIngenieria:
     def set_serial_equipo(self, serial):
         self.__serial_equipo = serial
 
-    #MÉTODOS DE CAPTURA DE DATOS
     def capturar_datos(self):
-        """Captura y valida todos los datos del estudiante al registrar."""
         print("\n─── Registro Estudiante Ingeniería ───")
         self.__cedula = pedir_cedula("  Cédula: ")
         self.__nombre = pedir_texto("  Nombre: ")
@@ -74,7 +72,6 @@ class EstudianteIngenieria:
         self.__semestre = pedir_entero("  Nuevo semestre: ", minimo=SEMESTRE_MIN, maximo=SEMESTRE_MAX)
         self.__promedio = pedir_flotante("  Nuevo promedio: ", minimo=PROMEDIO_MIN)
 
-    #IMPRIMIR
     def imprimir(self):
         print(f"""
   ┌─ Estudiante Ingeniería ──────────────

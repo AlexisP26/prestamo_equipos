@@ -53,7 +53,6 @@ class TabletaGrafica:
     def set_estado(self, estado):
         self.__estado = estado
 
-    # SUBMENÚ ALMACENAMIENTO 
     def __seleccionar_almacenamiento(self):
         print("\n  Almacenamiento:")
         for i, a in enumerate(ALMACENAMIENTOS, 1):
@@ -61,9 +60,7 @@ class TabletaGrafica:
         opcion = pedir_opcion_menu("  Opción: ", [str(i) for i in range(1, len(ALMACENAMIENTOS)+1)])
         return ALMACENAMIENTOS[int(opcion)-1]
 
-    # MÉTODOS DE CAPTURA DE DATOS
     def capturar_datos(self):
-        """Captura y valida todos los datos de la tableta al registrar."""
         print("\n─── Registro Tableta Gráfica ───")
         self.__serial = pedir_serial("  Serial: ")
         self.__marca = pedir_texto("  Marca: ")
@@ -74,7 +71,6 @@ class TabletaGrafica:
         self.__estado = "Disponible"
 
     def modificar_datos(self):
-        """Permite modificar solo los campos permitidos (no serial)."""
         print("\n─── Modificar Tableta Gráfica ───")
         print("  (Serial no se puede modificar)")
         self.__marca = pedir_texto("  Nueva marca: ")
@@ -83,7 +79,6 @@ class TabletaGrafica:
         self.__almacenamiento = self.__seleccionar_almacenamiento()
         self.__peso = pedir_flotante("  Nuevo peso en kg: ", minimo=0.1)
 
-    # IMPRIMIR 
     def imprimir(self):
         print(f"""
   ┌─ Tableta Gráfica ────────────────────

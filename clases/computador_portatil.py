@@ -54,7 +54,6 @@ class ComputadorPortatil:
     def set_estado(self, estado):
         self.__estado = estado
 
-    #SUBMENÚ SISTEMA OPERATIVO
     def __seleccionar_so(self):
         print("\n  Sistema Operativo:")
         for i, so in enumerate(SISTEMAS_OPERATIVOS, 1):
@@ -62,7 +61,6 @@ class ComputadorPortatil:
         opcion = pedir_opcion_menu("  Opción: ", [str(i) for i in range(1, len(SISTEMAS_OPERATIVOS)+1)])
         return SISTEMAS_OPERATIVOS[int(opcion)-1]
 
-    #SUBMENÚ PROCESADOR 
     def __seleccionar_procesador(self):
         print("\n  Procesador:")
         for i, p in enumerate(PROCESADORES, 1):
@@ -70,9 +68,7 @@ class ComputadorPortatil:
         opcion = pedir_opcion_menu("  Opción: ", [str(i) for i in range(1, len(PROCESADORES)+1)])
         return PROCESADORES[int(opcion)-1]
 
-    #MÉTODOS DE CAPTURA DE DATOS
     def capturar_datos(self):
-        """Captura y valida todos los datos del equipo al registrar."""
         print("\n─── Registro Computador Portátil ───")
         self.__serial = pedir_serial("  Serial: ")
         self.__marca = pedir_texto("  Marca: ")
@@ -83,7 +79,6 @@ class ComputadorPortatil:
         self.__estado = "Disponible"
 
     def modificar_datos(self):
-        """Permite modificar solo los campos permitidos (no serial)."""
         print("\n─── Modificar Computador Portátil ───")
         print("  (Serial no se puede modificar)")
         self.__marca = pedir_texto("  Nueva marca: ")
@@ -92,7 +87,6 @@ class ComputadorPortatil:
         self.__sistema_operativo = self.__seleccionar_so()
         self.__procesador = self.__seleccionar_procesador()
 
-    #METODO DE IMPRESIÓN
     def imprimir(self):
         print(f"""
   ┌─ Computador Portátil ────────────────

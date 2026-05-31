@@ -54,9 +54,7 @@ class EstudianteDiseño:
     def set_serial_equipo(self, serial):
         self.__serial_equipo = serial
 
-    # MÉTODOS DE CAPTURA DE DATOS
     def capturar_datos(self):
-        """Captura y valida todos los datos del estudiante al registrar."""
         print("\n─── Registro Estudiante Diseño ───")
         self.__cedula = pedir_cedula("  Cédula: ")
         self.__nombre = pedir_texto("  Nombre: ")
@@ -73,7 +71,6 @@ class EstudianteDiseño:
         self.__serial_equipo = pedir_texto("  Serial del equipo a prestar: ")
 
     def modificar_datos(self):
-        """Permite modificar solo los campos permitidos (no cédula ni serial)."""
         print("\n─── Modificar Estudiante Diseño ───")
         print("  (Cédula y serial no se pueden modificar)")
         self.__nombre = pedir_texto("  Nuevo nombre: ")
@@ -86,7 +83,7 @@ class EstudianteDiseño:
         opcion = pedir_opcion_menu("  Opción: ", [str(i) for i in range(1, len(MODALIDADES)+1)])
         self.__modalidad = MODALIDADES[int(opcion)-1]
         self.__cant_asignaturas = pedir_entero("  Cantidad de asignaturas: ", minimo=ASIGNATURAS_MIN, maximo=ASIGNATURAS_MAX)
-    # IMPRIMIR 
+    
     def imprimir(self):
         print(f"""
   ┌─ Estudiante Diseño ──────────────────

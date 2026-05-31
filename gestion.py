@@ -90,7 +90,7 @@ def devolver_equipo_ingeniero():
     vector_ingenieros.remove(estudiante)
     print(f"Equipo {serial} devuelto y registro eliminado.")
 
-    # Liberar el equipo
+    # Liberar el equipo asociado al estudiante
     serial = estudiante.get_serial_equipo()
     equipo = buscar_portatil_serial(serial)
     if not equipo:
