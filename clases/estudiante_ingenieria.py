@@ -53,25 +53,24 @@ class EstudianteIngenieria:
         self.__serial_equipo = serial
 
     def capturar_datos(self):
-        print("\n─── Registro Estudiante Ingeniería ───")
         self.__cedula = pedir_cedula("  Cédula: ")
         self.__nombre = pedir_texto("  Nombre: ")
         self.__apellido = pedir_texto("  Apellido: ")
         self.__telefono = pedir_telefono("  Teléfono: ")
         self.__semestre = pedir_entero("  Semestre: ", minimo=SEMESTRE_MIN, maximo=SEMESTRE_MAX)
-        self.__promedio = pedir_flotante("  Promedio acumulado: ", minimo=PROMEDIO_MIN)
+        self.__promedio = pedir_flotante("  Promedio acumulado: ", minimo=PROMEDIO_MIN, maximo=PROMEDIO_MAX)
         self.__serial_equipo = pedir_serial("  Serial del equipo a prestar: ")
 
     def modificar_datos(self):
-        """Permite modificar solo los campos permitidos (no cédula ni serial)."""
         print("\n─── Modificar Estudiante Ingeniería ───")
         print("  (Cédula y serial no se pueden modificar)")
         self.__nombre = pedir_texto("  Nuevo nombre: ")
         self.__apellido = pedir_texto("  Nuevo apellido: ")
         self.__telefono = pedir_telefono("  Nuevo teléfono: ")
         self.__semestre = pedir_entero("  Nuevo semestre: ", minimo=SEMESTRE_MIN, maximo=SEMESTRE_MAX)
-        self.__promedio = pedir_flotante("  Nuevo promedio: ", minimo=PROMEDIO_MIN)
+        self.__promedio = pedir_flotante("  Promedio acumulado: ", minimo=PROMEDIO_MIN, maximo=PROMEDIO_MAX)
 
+    #IMPRIMIR
     def imprimir(self):
         print(f"""
   ┌─ Estudiante Ingeniería ──────────────

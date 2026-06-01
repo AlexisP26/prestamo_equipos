@@ -225,12 +225,17 @@ def listar_diseñadores():
 
 
 def registrar_portatil():
-    print("\n REGISTRAR PORTÁTIL")
+    print("\n REGISTRAR PORTÁTIL ")
     equipo = ComputadorPortatil()
     equipo.capturar_datos()
+
     if buscar_portatil_serial(equipo.get_serial()):
         print("Ya existe un portátil con ese serial.")
         return
+    if buscar_tableta_serial(equipo.get_serial()):
+        print("Ya existe una tableta con ese serial.")
+        return
+
     vector_portatil.append(equipo)
     print("Portátil registrado exitosamente.")
 
@@ -238,9 +243,14 @@ def registrar_tableta():
     print("\n REGISTRAR TABLETA ")
     equipo = TabletaGrafica()
     equipo.capturar_datos()
+    
+    if buscar_portatil_serial(equipo.get_serial()):
+        print("Ya existe un portátil con ese serial.")
+        return
     if buscar_tableta_serial(equipo.get_serial()):
         print("Ya existe una tableta con ese serial.")
         return
+    
     vector_tableta.append(equipo)
     print("Tableta registrada exitosamente.")
 
